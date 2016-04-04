@@ -3,6 +3,9 @@ package ru.lovkov.tvshowlist;
 import ru.lovkov.tvshowlist.matcher.ModelMatcher;
 import ru.lovkov.tvshowlist.model.CurrentSerial;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static ru.lovkov.tvshowlist.model.BaseEntity.START_SEQ;
 
 /**
@@ -23,4 +26,17 @@ public class CurrentSerialTestData {
     public static final CurrentSerial ADMIN_CURRENT1 = new CurrentSerial(ADMIN_CURRENT_ID, 3, 11, true, false, 0);
     public static final CurrentSerial ADMIN_CURRENT2 = new CurrentSerial(ADMIN_CURRENT_ID+1, 0, 0, false, true, 0);
     public static final CurrentSerial ADMIN_CURRENT3 = new CurrentSerial(ADMIN_CURRENT_ID+2, 0, 0, false, false, 8);
+
+    public static final List<CurrentSerial> USER_CURRENT_SERIALS = Arrays.asList(CURRENT1, CURRENT2, CURRENT3);
+    public static final List<CurrentSerial> USER_WATCHED_SERIALS = Arrays.asList(CURRENT4, CURRENT5);
+
+    public static final List<CurrentSerial> ADMIN_CURRENT_SERIALS = Arrays.asList(ADMIN_CURRENT1, ADMIN_CURRENT2);
+
+    public static CurrentSerial getCreated() {
+        return new CurrentSerial(null, 1, 22, true, false, 0);
+    }
+
+    public static CurrentSerial getUpdated() {
+        return new CurrentSerial(CURRENT1_ID, 1, 16, true, false, 0);
+    }
 }
