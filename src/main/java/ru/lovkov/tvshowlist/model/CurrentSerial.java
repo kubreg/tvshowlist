@@ -1,24 +1,37 @@
 package ru.lovkov.tvshowlist.model;
 
+import org.hibernate.validator.constraints.Range;
+
+import javax.persistence.*;
+
 /**
  * Created by kubreg on 05.04.2016.
  */
+@Entity
+@Table(name = "current_serials", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "serial_id"}, name = "current_serials_unique_serial_id_user_id_idx")})
 public class CurrentSerial extends BaseEntity {
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
     protected User owner;
 
-    protected int serialId;
-
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "serial_id", nullable = false)
     protected Serial serial;
 
+    @Column(name = "current_season", nullable = false)
     protected int currentSeason;
 
+    @Column(name = "current_series", nullable = false)
     protected int currentSeries;
 
+    @Column(name = "watched", nullable = false)
     protected boolean watched;
 
+    @Column(name = "wished", nullable = false)
     protected boolean wished;
 
+    @Column(name = "rating", nullable = false)
     protected int rating;
 
     public CurrentSerial() {
@@ -30,14 +43,6 @@ public class CurrentSerial extends BaseEntity {
 
     public void setOwner(User owner) {
         this.owner = owner;
-    }
-
-    public int getSerialId() {
-        return serialId;
-    }
-
-    public void setSerialId(int serialId) {
-        this.serialId = serialId;
     }
 
     public Serial getSerial() {
@@ -86,5 +91,18 @@ public class CurrentSerial extends BaseEntity {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    @Override
+    public String toString() {
+        return "CurrentSerial{" +
+                "owner=" + owner +
+                ", serial=" + serial +
+                ", currentSeason=" + currentSeason +
+                ", currentSeries=" + currentSeries +
+                ", watched=" + watched +
+                ", wished=" + wished +
+                ", rating=" + rating +
+                '}';
     }
 }

@@ -1,20 +1,37 @@
 package ru.lovkov.tvshowlist.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.*;
 import java.util.List;
 
 /**
  * Created by kubreg on 05.04.2016.
  */
+@Entity
+@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "email", name = "users_unique_email_idx")})
 public class User extends BaseEntity {
 
+    @NotEmpty
+    @Column(name = "name", nullable = false)
     protected String name;
 
+    @Column(name = "password", nullable = false)
+    @NotEmpty
+    @Length(min = 5)
     protected String password;
 
+    @Column(name = "email", nullable = false, unique = true)
+    @Email
+    @NotEmpty
     protected String email;
 
-    protected boolean enabled;
+    @Column(name = "enabled", nullable = false)
+    protected boolean enabled = true;
 
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, mappedBy = "owner")
     protected List<CurrentSerial> serials;
 
     public User() {
@@ -58,5 +75,16 @@ public class User extends BaseEntity {
 
     public void setSerials(List<CurrentSerial> serials) {
         this.serials = serials;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", enabled=" + enabled +
+                ", serials=" + serials +
+                '}';
     }
 }
