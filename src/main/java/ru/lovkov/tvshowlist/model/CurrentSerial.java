@@ -37,6 +37,19 @@ public class CurrentSerial extends BaseEntity {
     public CurrentSerial() {
     }
 
+    public CurrentSerial(int currentSeason, int currentSeries, boolean watched, boolean wished, int rating) {
+        this(null, currentSeason, currentSeries, watched, wished, rating);
+    }
+
+    public CurrentSerial(Integer id, int currentSeason, int currentSeries, boolean watched, boolean wished, int rating) {
+        super(id);
+        this.currentSeason = currentSeason;
+        this.currentSeries = currentSeries;
+        this.watched = watched;
+        this.wished = wished;
+        this.rating = rating;
+    }
+
     public User getOwner() {
         return owner;
     }

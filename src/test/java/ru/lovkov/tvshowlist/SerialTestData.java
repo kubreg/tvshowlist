@@ -1,0 +1,20 @@
+package ru.lovkov.tvshowlist;
+
+import ru.lovkov.tvshowlist.matcher.ModelMatcher;
+import ru.lovkov.tvshowlist.model.Serial;
+
+/**
+ * Created by kubreg on 05.04.2016.
+ */
+public class SerialTestData {
+    public static final ModelMatcher<Serial, String> MATCHER = new ModelMatcher<>(Serial::toString);
+
+    public static final int SERIAL1_ID = 1;
+
+    public static final Serial SERIAL1 = new Serial(SERIAL1_ID, "Homeland", "Tony Kapoor, Lisa Berns", "Blah-blah-blah", 7.5, 8.0);
+    public static final Serial SERIAL2 = new Serial(SERIAL1_ID+1, "Card House", "Kevin Spacy, Tora Bjernsen", "Blah-blah-blah", 9.5, 9.0);
+    public static final Serial SERIAL3 = new Serial(SERIAL1_ID+2, "Rosewood", "Tom Hardy", "dddddddddd", 7.0, 6.0);
+    public static final Serial SERIAL4 = new Serial(SERIAL1_ID+3, "Lucifer", "Nina Moretz, Kai Loren", "detective", 7.5, 6.8);
+    public static final Serial SERIAL5 = new Serial(SERIAL1_ID+4, "Suits", "Jay Abrams, Harvey Spectr", "advocats", 8.5, 9.0);
+    public static final Serial SERIAL6 = new Serial(SERIAL1_ID+5, "Doctor Who", "John Smith, Mike Newton", "adventures", 9.5, 9.5);
+}

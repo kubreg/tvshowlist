@@ -14,7 +14,7 @@ public class Serial {
 
     @Column(name = "id", nullable = false, unique = true)
     @NotNull
-    protected int id;
+    protected Integer id;
 
     @Column(name = "title", nullable = false)
     @NotEmpty
@@ -29,19 +29,32 @@ public class Serial {
     protected String description;
 
     @Column(name = "kp_rating", nullable = false)
-    protected long kpRating;
+    protected Double kpRating;
 
     @Column(name = "imdb_rating", nullable = false)
-    private long imdbRating;
+    private Double imdbRating;
 
     public Serial() {
     }
 
-    public int getId() {
+    public Serial(String title, String actors, String description, Double kpRating, Double imdbRating) {
+        this(null, title, actors, description, kpRating, imdbRating);
+    }
+
+    public Serial(Integer id, String title, String actors, String description, Double kpRating, Double imdbRating) {
+        this.id = id;
+        this.title = title;
+        this.actors = actors;
+        this.description = description;
+        this.kpRating = kpRating;
+        this.imdbRating = imdbRating;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -69,19 +82,19 @@ public class Serial {
         this.description = description;
     }
 
-    public long getKpRating() {
+    public Double getKpRating() {
         return kpRating;
     }
 
-    public void setKpRating(long kpRating) {
+    public void setKpRating(Double kpRating) {
         this.kpRating = kpRating;
     }
 
-    public long getImdbRating() {
+    public Double getImdbRating() {
         return imdbRating;
     }
 
-    public void setImdbRating(long imdbRating) {
+    public void setImdbRating(Double imdbRating) {
         this.imdbRating = imdbRating;
     }
 
