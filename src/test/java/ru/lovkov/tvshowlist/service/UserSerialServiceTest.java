@@ -27,14 +27,13 @@ public class UserSerialServiceTest {
     private static final Logger LOG = getLogger(UserSerialServiceTest.class);
 
     @Autowired
-    private UserSerialRepository repository;
-//    private UserSerialService service;
+    private UserSerialService service;
 
     @Test
     public void testGet() {
         LOG.info("Test get: {}", USER1_ID);
 
-        UserSerial ref = repository.findOne(USER1_ID);
+        UserSerial ref = service.get(USER1_ID);
         MATCHER.assertEquals(ref, USER1);
     }
 }
