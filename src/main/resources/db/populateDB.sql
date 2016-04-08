@@ -1,4 +1,4 @@
-DELETE FROM current_serials;
+DELETE FROM user_serials;
 DELETE FROM serials;
 DELETE FROM users;
 ALTER SEQUENCE global_seq RESTART WITH 100000;
@@ -15,7 +15,7 @@ INSERT INTO serials (id, title, actors, description, kp_rating, imdb_rating) VAL
   (5, 'Suits', 'Jay Abrams, Harvey Spectr', 'advocats', 8.5, 9.0),
   (6, 'Doctor Who', 'John Smith, Mike Newton', 'adventures', 9.5, 9.5);
 
-INSERT INTO current_serials (user_id, serial_id, current_season, current_series, watched, wished, rating) VALUES
+INSERT INTO user_serials (user_id, serial_id, current_season, current_series, watched, wished, rating) VALUES
   (100000, 1, 1, 15, true, false, 0),
   (100000, 3, 2, 5, true, false, 0),
   (100000, 2, 0, 0, false, true, 0),

@@ -32,7 +32,7 @@ public class User extends BaseEntity {
     protected boolean enabled = true;
 
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, mappedBy = "owner")
-    protected List<CurrentSerial> serials;
+    protected List<UserSerial> serials;
 
     public User() {
     }
@@ -85,11 +85,11 @@ public class User extends BaseEntity {
         this.enabled = enabled;
     }
 
-    public List<CurrentSerial> getSerials() {
+    public List<UserSerial> getSerials() {
         return serials;
     }
 
-    public void setSerials(List<CurrentSerial> serials) {
+    public void setSerials(List<UserSerial> serials) {
         this.serials = serials;
     }
 
@@ -100,7 +100,6 @@ public class User extends BaseEntity {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", enabled=" + enabled +
-                ", serials=" + serials +
                 '}';
     }
 }

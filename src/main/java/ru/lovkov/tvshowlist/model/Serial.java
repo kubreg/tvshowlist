@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "serials", uniqueConstraints = {@UniqueConstraint(columnNames = "id", name = "serials_unique_id_idx")})
 public class Serial {
 
+    @Id
     @Column(name = "id", nullable = false, unique = true)
     @NotNull
     protected Integer id;
