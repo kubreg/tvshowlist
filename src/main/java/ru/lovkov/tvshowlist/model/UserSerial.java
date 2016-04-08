@@ -1,15 +1,13 @@
 package ru.lovkov.tvshowlist.model;
 
-import org.hibernate.validator.constraints.Range;
-
 import javax.persistence.*;
 
 /**
  * Created by kubreg on 05.04.2016.
  */
 @Entity
-@Table(name = "current_serials", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "serial_id"}, name = "current_serials_unique_serial_id_user_id_idx")})
-public class CurrentSerial extends BaseEntity {
+@Table(name = "user_serials", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "serial_id"}, name = "user_serials_unique_serial_id_user_id_idx")})
+public class UserSerial extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
@@ -34,14 +32,14 @@ public class CurrentSerial extends BaseEntity {
     @Column(name = "rating", nullable = false)
     protected int rating;
 
-    public CurrentSerial() {
+    public UserSerial() {
     }
 
-    public CurrentSerial(int currentSeason, int currentSeries, boolean watched, boolean wished, int rating) {
+    public UserSerial(int currentSeason, int currentSeries, boolean watched, boolean wished, int rating) {
         this(null, currentSeason, currentSeries, watched, wished, rating);
     }
 
-    public CurrentSerial(Integer id, int currentSeason, int currentSeries, boolean watched, boolean wished, int rating) {
+    public UserSerial(Integer id, int currentSeason, int currentSeries, boolean watched, boolean wished, int rating) {
         super(id);
         this.currentSeason = currentSeason;
         this.currentSeries = currentSeries;
@@ -109,8 +107,6 @@ public class CurrentSerial extends BaseEntity {
     @Override
     public String toString() {
         return "CurrentSerial{" +
-                "owner=" + owner +
-                ", serial=" + serial +
                 ", currentSeason=" + currentSeason +
                 ", currentSeries=" + currentSeries +
                 ", watched=" + watched +
