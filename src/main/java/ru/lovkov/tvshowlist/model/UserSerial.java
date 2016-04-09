@@ -107,7 +107,7 @@ public class UserSerial extends BaseEntity {
     @Override
     public String toString() {
         return "CurrentSerial{" +
-                ", currentSeason=" + currentSeason +
+                "currentSeason=" + currentSeason +
                 ", currentSeries=" + currentSeries +
                 ", watched=" + watched +
                 ", wished=" + wished +

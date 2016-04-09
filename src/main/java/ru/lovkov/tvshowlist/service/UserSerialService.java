@@ -9,17 +9,19 @@ import java.util.Collection;
  * Created by kubreg on 07.04.2016.
  */
 public interface UserSerialService {
-    UserSerial get(int id) throws NotFoundException;
+    UserSerial get(int id, int ownerId) throws NotFoundException;
 
-    void delete(int id) throws NotFoundException;
+    void delete(int id, int ownerId) throws NotFoundException;
 
-    Collection<UserSerial> getAll();
+    Collection<UserSerial> getAll(int ownerId);
 
-    Collection<UserSerial> getWatch();
+    Collection<UserSerial> getWatch(int ownerId);
 
-    Collection<UserSerial> getWish();
+    Collection<UserSerial> getWish(int ownerId);
 
-    Collection<UserSerial> getWatched();
+    Collection<UserSerial> getViewed(int ownerId);
 
-    UserSerial save(UserSerial userSerial);
+    Collection<UserSerial> getDefaultList(int ownerId); // watch and wish
+
+    UserSerial save(UserSerial userSerial, int ownerId);
 }

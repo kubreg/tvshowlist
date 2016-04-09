@@ -1,7 +1,6 @@
 package ru.lovkov.tvshowlist.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.lovkov.tvshowlist.model.UserSerial;
 import ru.lovkov.tvshowlist.repository.UserSerialRepository;
@@ -19,37 +18,42 @@ public class UserSerialServiceImpl implements UserSerialService {
     private UserSerialRepository repository;
 
     @Override
-    public UserSerial get(int id) throws NotFoundException {
-        return repository.findOne(id);
+    public UserSerial get(int id, int ownerId) throws NotFoundException {
+        return repository.get(id, ownerId);
     }
 
     @Override
-    public void delete(int id) throws NotFoundException {
-        repository.delete(id);
+    public void delete(int id, int ownerId) throws NotFoundException {
+        repository.delete(id, ownerId);
     }
 
     @Override
-    public Collection<UserSerial> getAll() {
-        return null;
+    public Collection<UserSerial> getAll(int ownerId) {
+        return repository.getAll(ownerId);
     }
 
     @Override
-    public Collection<UserSerial> getWatch() {
-        return null;
+    public Collection<UserSerial> getWatch(int ownerId) {
+        return repository.getWatch(ownerId);
     }
 
     @Override
-    public Collection<UserSerial> getWish() {
-        return null;
+    public Collection<UserSerial> getWish(int ownerId) {
+        return repository.getWish(ownerId);
     }
 
     @Override
-    public Collection<UserSerial> getWatched() {
-        return null;
+    public Collection<UserSerial> getViewed(int ownerId) {
+        return repository.getViewed(ownerId);
     }
 
     @Override
-    public UserSerial save(UserSerial userSerial) {
+    public Collection<UserSerial> getDefaultList(int ownerId) {
+        return repository.getDefaultList(ownerId);
+    }
+
+    @Override
+    public UserSerial save(UserSerial userSerial, int ownerId) {
         return repository.save(userSerial);
     }
 }
