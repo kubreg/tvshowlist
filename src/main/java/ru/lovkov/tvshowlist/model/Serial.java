@@ -38,10 +38,6 @@ public class Serial {
     public Serial() {
     }
 
-    public Serial(String title, String actors, String description, Double kpRating, Double imdbRating) {
-        this(null, title, actors, description, kpRating, imdbRating);
-    }
-
     public Serial(Integer id, String title, String actors, String description, Double kpRating, Double imdbRating) {
         this.id = id;
         this.title = title;
