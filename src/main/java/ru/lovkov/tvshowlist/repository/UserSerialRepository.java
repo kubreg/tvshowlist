@@ -3,9 +3,10 @@ package ru.lovkov.tvshowlist.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.lovkov.tvshowlist.model.UserSerial;
+import ru.lovkov.tvshowlist.repository.datajpa.UserSerialRepositoryCustom;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * Created by kubreg on 05.04.2016.
  */
 @Transactional(readOnly = true)
-public interface UserSerialRepository extends JpaRepository<UserSerial, Integer> {
+public interface UserSerialRepository extends Repository<UserSerial, Integer>, UserSerialRepositoryCustom {
 
     @Query("SELECT us FROM UserSerial us WHERE us.owner.id=?1")
     List<UserSerial> getAll(int ownerId);

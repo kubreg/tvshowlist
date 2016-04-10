@@ -2,6 +2,7 @@ package ru.lovkov.tvshowlist.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.lovkov.tvshowlist.model.Serial;
 import ru.lovkov.tvshowlist.model.UserSerial;
 import ru.lovkov.tvshowlist.repository.UserSerialRepository;
 import ru.lovkov.tvshowlist.util.exception.NotFoundException;
@@ -53,7 +54,12 @@ public class UserSerialServiceImpl implements UserSerialService {
     }
 
     @Override
-    public UserSerial save(UserSerial userSerial, int ownerId) {
-        return repository.save(userSerial);
+    public UserSerial save(UserSerial userSerial, Serial serial, int ownerId) {
+        return repository.save(userSerial, serial, ownerId);
+    }
+
+    @Override
+    public UserSerial update(UserSerial userSerial, int ownerId) {
+        return repository.save(userSerial, null, ownerId);
     }
 }

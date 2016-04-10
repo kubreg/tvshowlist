@@ -7,9 +7,11 @@ import ru.lovkov.tvshowlist.model.UserSerial;
 import java.util.Arrays;
 import java.util.Collections;
 
-import static org.slf4j.LoggerFactory.getLogger;
+import static ru.lovkov.tvshowlist.SerialTestData.SERIAL1;
 import static ru.lovkov.tvshowlist.UserSerialTestData.*;
 import static ru.lovkov.tvshowlist.UserTestData.USER_ID;
+import static ru.lovkov.tvshowlist.SerialTestData.SERIAL5;
+import static ru.lovkov.tvshowlist.UserTestData.USER;
 
 /**
  * Created by kubreg on 07.04.2016.
@@ -19,6 +21,24 @@ public class UserSerialServiceTest extends AbstractServiceTest {
 
     @Autowired
     private UserSerialService service;
+
+    @Test
+    public void testSave() {
+        UserSerial serial = getCreated();
+        service.save(serial, SERIAL5, USER_ID);
+
+        MATCHER.assertCollectionEquals(Arrays.asList(serial, USER_SERIAL3), service.getWish(USER_ID));
+    }
+
+    @Test
+    public void testUpdate() {
+        UserSerial serial = getUpdated();
+        serial.setOwner(USER);
+        serial.setSerial(SERIAL1);
+        service.save(serial, null, USER_ID);
+
+        MATCHER.assertEquals(serial, service.get(serial.getId(), USER_ID));
+    }
 
     @Test
     public void testGet() {

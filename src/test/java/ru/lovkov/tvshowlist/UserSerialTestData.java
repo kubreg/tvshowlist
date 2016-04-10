@@ -34,7 +34,7 @@ public class UserSerialTestData {
     public static final List<UserSerial> ADMIN_CURRENT_SERIALS = Arrays.asList(ADMIN_SERIAL1, ADMIN_SERIAL2);
 
     public static UserSerial getCreated() {
-        return new UserSerial(null, 1, 22, true, false, 0);
+        return new UserSerial(null, 0, 0, false, true, 0);
     }
 
     public static UserSerial getUpdated() {
