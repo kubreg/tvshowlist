@@ -18,6 +18,14 @@ public class UserTestData {
     public static final User USER = new User(USER_ID, "User", "user@yandex.ru", "password");
     public static final User ADMIN = new User(ADMIN_ID, "Admin", "admin@gmail.com", "admin");
 
+    public static User getCreated() {
+        return new User(null, "CreatedUser", "test@test.ru", "password");
+    }
+
+    public static User getUpdated() {
+        return new User(USER_ID, "UpdatedUser", "user@yandex.ru", "password");
+    }
+
     public static class TestUser extends User {
         public TestUser(User u) {
             this(u.getId(), u.getName(), u.getEmail(), u.getPassword(), u.isEnabled());
