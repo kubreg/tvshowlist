@@ -29,6 +29,12 @@ public class Serial {
     @NotEmpty
     protected String description;
 
+    @Column(name = "series", nullable = false)
+    protected Integer series;
+
+    @Column(name = "seasons", nullable = false)
+    protected Integer seasons;
+
     @Column(name = "kp_rating", nullable = false)
     protected Double kpRating;
 
@@ -38,11 +44,13 @@ public class Serial {
     public Serial() {
     }
 
-    public Serial(Integer id, String title, String actors, String description, Double kpRating, Double imdbRating) {
+    public Serial(Integer id, String title, String actors, String description, Integer series, Integer seasons, Double kpRating, Double imdbRating) {
         this.id = id;
         this.title = title;
         this.actors = actors;
         this.description = description;
+        this.series = series;
+        this.seasons = seasons;
         this.kpRating = kpRating;
         this.imdbRating = imdbRating;
     }
@@ -77,6 +85,22 @@ public class Serial {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getSeries() {
+        return series;
+    }
+
+    public void setSeries(Integer series) {
+        this.series = series;
+    }
+
+    public Integer getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(Integer seasons) {
+        this.seasons = seasons;
     }
 
     public Double getKpRating() {

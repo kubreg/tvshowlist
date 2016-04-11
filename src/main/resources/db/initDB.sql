@@ -22,6 +22,8 @@ CREATE TABLE serials
   title       VARCHAR NOT NULL,
   actors      VARCHAR NOT NULL,
   description VARCHAR NOT NULL,
+  series      INTEGER NOT NULL,
+  seasons     INTEGER NOT NULL,
   kp_rating   DOUBLE PRECISION NOT NULL,
   imdb_rating DOUBLE PRECISION NOT NULL
 );

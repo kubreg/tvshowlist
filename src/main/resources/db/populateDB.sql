@@ -7,13 +7,13 @@ INSERT INTO users (name, email, password) VALUES
   ('User', 'user@yandex.ru', 'password'),
   ('Admin', 'admin@gmail.com', 'admin');
 
-INSERT INTO serials (id, title, actors, description, kp_rating, imdb_rating) VALUES
-  (1, 'Homeland', 'Tony Kapoor, Lisa Berns', 'Blah-blah-blah', 7.5, 8.0),
-  (2, 'Card House', 'Kevin Spacy, Tora Bjernsen', 'Blah-blah-blah', 9.5, 9.0),
-  (3, 'Rosewood', 'Tom Hardy', 'dddddddddd', 7.0, 6.0),
-  (4, 'Lucifer', 'Nina Moretz, Kai Loren', 'detective', 7.5, 6.8),
-  (5, 'Suits', 'Jay Abrams, Harvey Spectr', 'advocats', 8.5, 9.0),
-  (6, 'Doctor Who', 'John Smith, Mike Newton', 'adventures', 9.5, 9.5);
+INSERT INTO serials (id, title, actors, description, series, seasons, kp_rating, imdb_rating) VALUES
+  (1, 'Homeland', 'Tony Kapoor, Lisa Berns', 'Blah-blah-blah', 16, 5, 7.5, 8.0),
+  (2, 'Card House', 'Kevin Spacy, Tora Bjernsen', 'Blah-blah-blah', 22, 5, 9.5, 9.0),
+  (3, 'Rosewood', 'Tom Hardy', 'dddddddddd', 22, 1, 7.0, 6.0),
+  (4, 'Lucifer', 'Nina Moretz, Kai Loren', 'detective', 22, 1, 7.5, 6.8),
+  (5, 'Suits', 'Jay Abrams, Harvey Spectr', 'advocats', 22, 5, 8.5, 9.0),
+  (6, 'Doctor Who', 'John Smith, Mike Newton', 'adventures', 16, 20, 9.5, 9.5);
 
 INSERT INTO user_serials (user_id, serial_id, current_season, current_series, watched, wished, rating) VALUES
   (100000, 1, 1, 15, true, false, 0),
